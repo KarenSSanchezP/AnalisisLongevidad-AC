@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis de Esperanza de Vida en Centroamérica</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .indicator-section {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.8s ease, opacity 0.8s ease, padding 0.8s ease;
+            padding: 0;
+        }
+        .indicator-section.open {
+            max-height: 3000px;
+            opacity: 1;
+            padding: 1.5rem;
+        }
+        .indicator-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 4rem;
+        }
+        .card {
+            background: white;
+            padding: 2rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 16px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.3);
+        }
+        .btn {
+            background: linear-gradient(135deg, #4f46e5, #3b82f6);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        }
+        @media (min-width: 1600px) {
+            .container {
+                max-width: 1400px;
+                padding: 4rem 6rem;
+            }
+        }
+    </style>
+</head>
+<body class="bg-blue-50 font-sans leading-relaxed">
+    <header class="text-center p-8 bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-b-lg">
+        <h1 class="text-4xl font-bold">Análisis de Esperanza de Vida en Centroamérica</h1>
+    </header>
+
+    <main class="container">
+        <section class="mb-8 p-8 bg-white rounded-lg text-center">
+            <h2 class="text-2xl font-bold text-blue-600">Generalidades del Proyecto</h2>
+            <p class="mt-4 text-gray-700">Este proyecto analiza múltiples indicadores socioeconómicos relacionados con la esperanza de vida en países de Centroamérica, considerando factores como salud pública, educación, empleo, y más.</p>
+        </section>
+
+        <section class="mb-8 bg-white p-8 rounded-lg text-center">
+            <button class="btn" onclick="toggleAll()">
+                Indicadores Analizados
+            </button>
+            <div id="indicators" class="indicator-section"></div>
+        </section>
+
+        <section class="mt-8 p-8 bg-white rounded-lg text-center">
+            <h2 class="text-2xl font-bold text-blue-600">Conclusiones</h2>
+            <p class="mt-4 text-gray-700">Las conclusiones basadas en el análisis de los datos resaltan los factores más determinantes en la esperanza de vida en la región de Centroamérica...</p>
+        </section>
+    </main>
+
+    <script>
+        const indicators = [
+            { name: "Access to electricity", description: "La salud pública incluye servicios esenciales como hospitales y vacunación." },
+            { name: "Adjusted net national income per capita", description: "La educación fomenta el desarrollo individual y la prosperidad económica." },
+            { name: "Current health expenditure per capita", description: "Los ingresos promedio determinan el acceso a bienes y servicios básicos." },
+            { name: "Employment to population ratio", description: "El acceso a agua potable es vital para prevenir enfermedades." },
+            { name: "GDP per capita", description: "La calidad de hospitales y clínicas afecta directamente la salud pública." },
+            { name: "Industry (including construction)", description: "Una buena nutrición es crucial para el desarrollo y la prevención de enfermedades." },
+            { name: "Labor force total", description: "La seguridad pública reduce la violencia y crea entornos más saludables." },
+            { name: "Labor force with advanced education", description: "El empleo proporciona ingresos y estabilidad financiera." },
+            { name: "Life expectancy at birth total", description: "Un medio ambiente limpio mejora la salud y la calidad de vida." },
+            { name: "Net migration", description: "Los servicios sociales apoyan a los sectores más vulnerables." },
+            { name: "People using at least basic sanitation services", description: "La estabilidad política asegura el desarrollo sostenible." },
+            { name: "Population density", description: "El desarrollo económico genera oportunidades y mejora la calidad de vida." }
+        ];
+
+        const indicatorsContainer = document.getElementById("indicators");
+
+        indicators.forEach((indicator, index) => {
+            const section = document.createElement("section");
+            section.classList.add("card", "mb-8");
+
+            section.innerHTML = `
+                <button class="w-full text-left text-xl font-bold text-blue-600" onclick="toggleSection(${index})">
+                    ${indicator.name}
+                </button>
+                <div id="content-${index}" class="indicator-section">
+                    <div class="indicator-content mt-4">
+                        <div class="flex flex-wrap justify-center gap-8">
+                            <img src="/graficos/${indicator.name.toLowerCase().replace(/ /g, "_")}_2.png" alt="Gráfico 1 de ${indicator.name}" class="rounded max-w-sm">
+                            <img src="/graficos/${indicator.name.toLowerCase().replace(/ /g, "_")}_1.png" alt="Gráfico 2 de ${indicator.name}" class="rounded max-w-sm">
+                        </div>
+                        <p class="mt-4 text-gray-600">${indicator.description}</p>
+                    </div>
+                </div>
+            `;
+            indicatorsContainer.appendChild(section);
+        });
+
+        function toggleSection(index) {
+            const content = document.getElementById(`content-${index}`);
+            content.classList.toggle("open");
+        }
+
+        function toggleAll() {
+            const content = document.getElementById("indicators");
+            content.classList.toggle("open");
+        }
+    </script>
+</body>
+</html>
