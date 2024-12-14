@@ -4,7 +4,7 @@ Conclusiones del proyecto
 
 ## Tabla de contenidos
 
-1. [Nombre](#Nombre)
+1. [Análisis comparativo de factores socioculturales y económicos que han afectado la longevidad de las personas en la región de América Central (AC) entre los años del 2010 al 2022](#Nombre)
 2. [Descripción](#descripción)
 3. [Arquitectura](#Arquitectura)
 4. [Proceso](#Proceso)
@@ -12,7 +12,7 @@ Conclusiones del proyecto
 6. [Estado del proyecto](#EstadoDelProyecto)
 
 
-* Nombre del proyecto: Análisis de Longevidad en América Central
+* Nombre del proyecto: Análisis comparativo de factores socioculturales y económicos que han afectado la longevidad de las personas en la región de América Central (AC) entre los años del 2010 al 2022
 
 * Breve descripción del proyecto: Proyecto en Python sobre análisis comparativo de factores socioculturales y económicos que han afectado la longevidad de las personas en la región de América Central (AC) entre los años del 2010 al 2022
 -> Alguna imagen o gif que muestre el proyecto
