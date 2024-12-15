@@ -84,18 +84,106 @@
 
     <script>
         const indicators = [
-            { name: "Access to electricity", description: "La salud pública incluye servicios esenciales como hospitales y vacunación." },
-            { name: "Adjusted net national income per capita", description: "La educación fomenta el desarrollo individual y la prosperidad económica." },
-            { name: "Current health expenditure per capita", description: "Los ingresos promedio determinan el acceso a bienes y servicios básicos." },
-            { name: "Employment to population ratio", description: "El acceso a agua potable es vital para prevenir enfermedades." },
-            { name: "GDP per capita", description: "La calidad de hospitales y clínicas afecta directamente la salud pública." },
-            { name: "Industry (including construction)", description: "Una buena nutrición es crucial para el desarrollo y la prevención de enfermedades." },
-            { name: "Labor force total", description: "La seguridad pública reduce la violencia y crea entornos más saludables." },
-            { name: "Labor force with advanced education", description: "El empleo proporciona ingresos y estabilidad financiera." },
-            { name: "Life expectancy at birth total", description: "Un medio ambiente limpio mejora la salud y la calidad de vida." },
-            { name: "Net migration", description: "Los servicios sociales apoyan a los sectores más vulnerables." },
-            { name: "People using at least basic sanitation services", description: "La estabilidad política asegura el desarrollo sostenible." },
-            { name: "Population density", description: "El desarrollo económico genera oportunidades y mejora la calidad de vida." }
+            { 
+                name: "Access to electricity", 
+                description: "Entre 2010 y 2022, Centroamérica mostró avances en acceso a electricidad, destacando Costa Rica y El Salvador, \
+                que alcanzaron el 100% de cobertura en 2022. Honduras tuvo una caída notable en 2017, mientras que Nicaragua, aunque mejora, \
+                sigue con menos del 90% de acceso. Persisten disparidades regionales, reflejando desafíos en infraestructura y políticas energéticas." 
+            },
+            { 
+                name: "Adjusted net national income per capita", 
+                description: "Entre 2010 y 2022, Panamá y Costa Rica lideraron en ingresos nacionales netos ajustados per cápita, mientras que \
+                Nicaragua y Honduras quedaron rezagados, evidenciando disparidades económicas en Centroamérica. Aunque la mayoría de países mostraron \
+                crecimiento sostenido, en 2020 hubo una caída significativa, especialmente en Panamá, debido a los efectos de la pandemia de COVID-19. \
+                La brecha entre los países con mayores y menores ingresos sigue siendo considerable." 
+            },
+            { 
+                name: "Current health expenditure per capita", 
+                description: "El gasto sanitario corriente per cápita en Centroamérica muestra claras disparidades entre países. Nicaragua registra los \
+                niveles más bajos, mientras que Costa Rica y Panamá lideran, compitiendo por los primeros puestos hasta 2013, cuando Panamá experimenta un \
+                crecimiento notable. <br>En gráficos de líneas, se observan las tendencias anuales y la amplia brecha entre países, destacando las diferencias \
+                en cómo cada nación afronta el gasto sanitario. En gráficos de barras, se aprecia la distribución de los desembolsos, reafirmando la posición \
+                destacada de Panamá y Costa Rica frente al declive de Nicaragua. Estas visualizaciones evidencian los retos de la región en inversión sanitaria."
+            },
+            { 
+                name: "Employment to population ratio", 
+                description: "El ratio de empleo con población de 15 años o más en Centroamérica muestra disparidades, con Nicaragua liderando en \
+                algunos años, aunque su falta de datos genera incertidumbre sobre su tendencia completa. Este indicador sugiere que en Nicaragua, \
+                más personas comienzan a trabajar desde edades tempranas, lo que podría impactar su salud y bienestar. Panamá y Guatemala también \
+                destacan, con tasas relativamente altas, aunque Panamá muestra una disminución desde 2019. <br>En gráficos de líneas, se \
+                observan tendencias y brechas en las tasas de empleo, mientras que en barras se aprecia un promedio general del cual no se ve mucha variacion \
+                Esto refleja una alta probabilidad de empleo para personas de 15 años o más en Centroamérica."
+            },
+            { 
+                name: "GDP per capita", 
+                description: "El gráfico de líneas del PIB per cápita en Centroamérica (2010-2022) refleja un crecimiento económico general, con Panamá y \
+                Costa Rica liderando la región y destacando por sus altos valores. En contraste, Nicaragua y Honduras registran los niveles más bajos, \
+                evidenciando notables disparidades económicas. Aunque todos los países muestran una tendencia al alza, la mayoría experimentó una caída en \
+                2020, atribuida a los impactos de la pandemia de COVID-19, siendo Panamá el más afectado. Estas diferencias subrayan la brecha económica \
+                entre los países más desarrollados, como Panamá y Costa Rica, y aquellos con menor ingreso per cápita."
+            },
+            { 
+                name: "Industry (including construction)", 
+                description: "El gráfico muestra el porcentaje del PIB aportado por la industria y la construcción en Centroamérica entre 2010 y 2022. \
+                Panamá destaca con un aumento en su industrialización hasta 2013, seguido de estabilidad. Honduras, El Salvador y Guatemala mantienen \
+                niveles altos, superando el 25% durante la mayoría del período. Costa Rica, en cambio, presenta una tendencia a la baja, posiblemente \
+                reflejando una transición económica hacia otros sectores." 
+            },
+            { 
+                name: "Labor force total", 
+                description: "El indicador Labor force total, mide la población económicamente activa, empleada o en búsqueda de empleo, y permite \
+                analizar tendencias económicas y laborales en Centroamérica. Un crecimiento en la fuerza laboral puede reflejar un aumento en la \
+                población en edad de trabajar, mayor participación en el mercado o mejoras en políticas laborales. En contraste, una disminución \
+                podría indicar problemas como recesión, emigración, envejecimiento de la población o crisis laboral. Estas dinámicas afectan no solo \
+                la economía, sino también la calidad de vida y la longevidad. Las variaciones en la fuerza laboral evidencian desigualdades en \
+                oportunidades y condiciones laborales entre países de la región."
+            },
+            { 
+                name: "Labor force with advanced education", 
+                description: "El indicador Población laboral con educación avanzada, mide el porcentaje de la fuerza laboral con estudios superiores, \
+                como títulos universitarios o postgrados, reflejando el nivel educativo y las oportunidades laborales en un país. El gráfico permite \
+                analizar tendencias temporales en la proporción de trabajadores calificados y las desigualdades entre países de Centroamérica. \
+                Un aumento en este indicador sugiere mejoras en el acceso a la educación superior y está asociado con mayores oportunidades laborales, \
+                mejores ingresos y una calidad de vida superior. Las diferencias entre países destacan rezagos en algunos y avances significativos en \
+                otros, lo que impacta directamente en las condiciones socioeconómicas y la longevidad de las personas."
+            },
+            { 
+                name: "Life expectancy at birth total", 
+                description: "El indicador Esperanza de vida al nacer mide el promedio de años que se espera que viva una persona al nacer, reflejando \
+                el bienestar y las condiciones de salud de una población. El gráfico permite analizar tendencias entre 2010 y 2022, destacando aumentos, \
+                disminuciones o estabilidad en la longevidad de los países de Centroamérica. <br>Un aumento en la esperanza de vida generalmente indica \
+                mejoras en salud pública, atención médica y condiciones de vida. Sin embargo, las desigualdades entre países muestran cómo factores como \
+                pobreza, acceso limitado a servicios básicos y sistemas de salud deficientes afectan este indicador. Las disparidades reflejan también las \
+                brechas económicas y sociales dentro de la región."
+            },
+            { 
+                name: "Net migration", 
+                description: "La migración neta es el resultado de restar emigrantes (quienes dejan un país) de inmigrantes (quienes llegan a él). Un valor \
+                negativo indica más emigración que inmigración, mientras que un valor positivo refleja lo contrario. En Centroamérica, países como \
+                El Salvador, Guatemala, Honduras y Nicaragua presentan migración neta negativa, lo que sugiere altos niveles de emigración. En contraste, \
+                Panamá, Costa Rica y Belice tienen migración neta positiva, evidenciando más inmigración que emigración. <br>Factores como recursos, \
+                oportunidades económicas y políticas migratorias influyen en estas tendencias. Los datos también destacan implicaciones sociales y \
+                económicas, como la presión sobre los servicios públicos en países receptores y la pérdida de población activa en los países emisores. \
+                La migración neta es clave para evaluar las dinámicas migratorias, aunque debe complementarse con otros indicadores."
+            },
+            { 
+                name: "People using at least basic sanitation services", 
+                description: "El acceso a servicios básicos de saneamiento varía significativamente en Centroamérica. Costa Rica destaca con más del \
+                95% de su población con acceso, manteniéndose consistentemente en este nivel desde 2010, reflejando una infraestructura y políticas \
+                sólidas. En contraste, Guatemala tiene menos del 70% de su población cubierta durante el mismo periodo, lo que evidencia desafíos en \
+                recursos e infraestructura. Un gráfico de barras muestra que Costa Rica lidera la región, mientras que Nicaragua, Guatemala y Honduras \
+                presentan menores porcentajes de acceso, indicando la necesidad de mejoras significativas. Estas disparidades tienen implicaciones en \
+                salud pública y desarrollo regional." 
+            },
+            { 
+                name: "Population density", 
+                description: "La densidad poblacional en Centroamérica muestra grandes diferencias. El Salvador lidera con 295 a 304 personas por km² \
+                entre 2010 y 2022, reflejando una alta concentración debido a su pequeño territorio (21,041 km²). En contraste, Belice, Nicaragua y Panamá \
+                tienen densidades mucho menores, indicando una población más dispersa. El promedio de densidad confirma a El Salvador como el más alto \
+                (300 personas por km²), seguido por Guatemala (146) y Honduras (83). Estas variaciones afectan el acceso a servicios y las condiciones \
+                de vida, aunque mayor densidad no siempre implica menor pobreza. Comprender esta distribución es esencial para analizar desigualdades y \
+                vulnerabilidades en la región." 
+            }
         ];
 
         const indicatorsContainer = document.getElementById("indicators");
