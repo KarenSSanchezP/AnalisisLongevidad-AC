@@ -15,33 +15,41 @@ Conclusiones del proyecto
 * Nombre del proyecto: Análisis comparativo de factores socioculturales y económicos que han afectado la longevidad de las personas en la región de América Central (AC) entre los años del 2010 al 2022
 
 * Breve descripción del proyecto: Proyecto en Python sobre análisis comparativo de factores socioculturales y económicos que han afectado la longevidad de las personas en la región de América Central (AC) entre los años del 2010 al 2022
--> Alguna imagen o gif que muestre el proyecto
+-> Alguna imagen o gif que muestre el proyecto **pendiente**
 
 * Arquitectura del proyecto + imagen
 
 * Proceso de desarrollo
 
--Fuente del dataset: [Banco Mundial](https://databank.worldbank.org/reports.aspx?source=world-development-indicators#)
+* Fuente del dataset: [Banco Mundial](https://databank.worldbank.org/reports.aspx?source=world-development-indicators#)
 
--Limpieza de datos (img que lo valide) **pendiente**
+* Limpieza de datos
+    - Limpieza inicial de datos:
+    ![alt text](img/limpiezaInicial.png)
 
--Manejo excepciones/control errores **pendiente**
+    - Limpieza por cada dataframe creado:
+    ![alt text](img/limpiezaPorDF.png)
+    **NOTA:** Se realiza una limpieza similar para cada dataframe creado, que corresponde a un indicador de interés.
 
--Estadísticos (Valores, gráficos, …) **pendiente**
+* Manejo excepciones/control errores: En nuestro caso, no tenemos ninguna excepción, por lo que no es necesario controlar errores.
 
-* Funcionalidades extra: **pendiente**
+* Estadísticos (Valores, gráficos, …):
+    1. Mostrar contenido del dataframe del indicador correspondiente:
+    ![alt text](img/contenidoDF.png)
+
+    2. Gráfico de líneas del indicador (muestra la evolución del indicador en el tiempo):
+    ![alt text](img/graficoLineas.png)
+
+    3. Gráfico de barras de media del indicador (muestra el promedio del indicador en cada país):
+    ![alt text](img/graficoBarras.png)
+
+    4. Datos estadísticos (media, promedio, desviación estándar, …):
+    ![alt text](img/estadisticas.png)
+
+    **NOTA:** Se realiza una proceso similar para cada indicador.
+
+* Funcionalidades extra: 
 
 Ejem 1: Integración del proyecto en una pág web
-- Tecnología/Herramientas usadas …
-- Arquitectura (img)
-
-Ejem 3: Integración del proyecto en un canal WhatsApp, Discord, Telegram, Correo, …
-- Tecnología/Herramientas usadas …
-- Arquitectura (img)
-
-Ejem 4: Desarrollo de interfaz gráfica de usuario
-- Tecnología/Herramientas usadas …
-- Arquitectura (img)
-
-Ejem …: …
-- Tecnología/Herramientas usadas …
+- Tecnología/Herramientas usadas: HTML, CSS, Tailwind
+- Arquitectura (img) **pendiente**
