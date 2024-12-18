@@ -50,6 +50,9 @@
             transform: translateY(-4px);
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
         }
+        .indicator-img:hover {
+            transform: scale(1.4); /* Aumenta el tamaño al hacer hover */
+        }   
         @media (min-width: 1600px) {
             .container {
                 max-width: 1400px;
@@ -109,20 +112,20 @@
     <script>
         const indicators = [
             { 
-                name: "Access to electricity", 
+                name: "Acceso a la electricidad", 
                 description: "Entre 2010 y 2022, Centroamérica mostró avances en acceso a electricidad, destacando Costa Rica y El Salvador, \
                 que alcanzaron el 100% de cobertura en 2022. Honduras tuvo una caída notable en 2017, mientras que Nicaragua, aunque mejora, \
                 sigue con menos del 90% de acceso. Persisten disparidades regionales, reflejando desafíos en infraestructura y políticas energéticas." 
             },
             { 
-                name: "Adjusted net national income per capita", 
+                name: "Ingreso nacional neto ajustado per cápita", 
                 description: "Entre 2010 y 2022, Panamá y Costa Rica lideraron en ingresos nacionales netos ajustados per cápita, mientras que \
                 Nicaragua y Honduras quedaron rezagados, evidenciando disparidades económicas en Centroamérica. Aunque la mayoría de países mostraron \
                 crecimiento sostenido, en 2020 hubo una caída significativa, especialmente en Panamá, debido a los efectos de la pandemia de COVID-19. \
                 La brecha entre los países con mayores y menores ingresos sigue siendo considerable." 
             },
             { 
-                name: "Current health expenditure per capita", 
+                name: "Gasto actual en salud per cápita", 
                 description: "El gasto sanitario corriente per cápita en Centroamérica muestra claras disparidades entre países. Nicaragua registra los \
                 niveles más bajos, mientras que Costa Rica y Panamá lideran, compitiendo por los primeros puestos hasta 2013, cuando Panamá experimenta un \
                 crecimiento notable. <br>En gráficos de líneas, se observan las tendencias anuales y la amplia brecha entre países, destacando las diferencias \
@@ -130,7 +133,7 @@
                 destacada de Panamá y Costa Rica frente al declive de Nicaragua. Estas visualizaciones evidencian los retos de la región en inversión sanitaria."
             },
             { 
-                name: "Employment to population ratio", 
+                name: "Relación empleo población", 
                 description: "El ratio de empleo con población de 15 años o más en Centroamérica muestra disparidades, con Nicaragua liderando en \
                 algunos años, aunque su falta de datos genera incertidumbre sobre su tendencia completa. Este indicador sugiere que en Nicaragua, \
                 más personas comienzan a trabajar desde edades tempranas, lo que podría impactar su salud y bienestar. Panamá y Guatemala también \
@@ -139,7 +142,7 @@
                 Esto refleja una alta probabilidad de empleo para personas de 15 años o más en Centroamérica."
             },
             { 
-                name: "GDP per capita", 
+                name: "PIB per cápita", 
                 description: "El gráfico de líneas del PIB per cápita en Centroamérica (2010-2022) refleja un crecimiento económico general, con Panamá y \
                 Costa Rica liderando la región y destacando por sus altos valores. En contraste, Nicaragua y Honduras registran los niveles más bajos, \
                 evidenciando notables disparidades económicas. Aunque todos los países muestran una tendencia al alza, la mayoría experimentó una caída en \
@@ -147,14 +150,14 @@
                 entre los países más desarrollados, como Panamá y Costa Rica, y aquellos con menor ingreso per cápita."
             },
             { 
-                name: "Industry (including construction)", 
+                name: "Industria (incluida la construcción)", 
                 description: "El gráfico muestra el porcentaje del PIB aportado por la industria y la construcción en Centroamérica entre 2010 y 2022. \
                 Panamá destaca con un aumento en su industrialización hasta 2013, seguido de estabilidad. Honduras, El Salvador y Guatemala mantienen \
                 niveles altos, superando el 25% durante la mayoría del período. Costa Rica, en cambio, presenta una tendencia a la baja, posiblemente \
                 reflejando una transición económica hacia otros sectores." 
             },
             { 
-                name: "Labor force total", 
+                name: "Total de la fuerza laboral", 
                 description: "El indicador Labor force total, mide la población económicamente activa, empleada o en búsqueda de empleo, y permite \
                 analizar tendencias económicas y laborales en Centroamérica. Un crecimiento en la fuerza laboral puede reflejar un aumento en la \
                 población en edad de trabajar, mayor participación en el mercado o mejoras en políticas laborales. En contraste, una disminución \
@@ -163,7 +166,7 @@
                 oportunidades y condiciones laborales entre países de la región."
             },
             { 
-                name: "Labor force with advanced education", 
+                name: "Fuerza laboral con educación avanzada", 
                 description: "El indicador Población laboral con educación avanzada, mide el porcentaje de la fuerza laboral con estudios superiores, \
                 como títulos universitarios o postgrados, reflejando el nivel educativo y las oportunidades laborales en un país. El gráfico permite \
                 analizar tendencias temporales en la proporción de trabajadores calificados y las desigualdades entre países de Centroamérica. \
@@ -172,7 +175,7 @@
                 otros, lo que impacta directamente en las condiciones socioeconómicas y la longevidad de las personas."
             },
             { 
-                name: "Life expectancy at birth total", 
+                name: "Esperanza de vida al nacer total", 
                 description: "El indicador Esperanza de vida al nacer mide el promedio de años que se espera que viva una persona al nacer, reflejando \
                 el bienestar y las condiciones de salud de una población. El gráfico permite analizar tendencias entre 2010 y 2022, destacando aumentos, \
                 disminuciones o estabilidad en la longevidad de los países de Centroamérica. <br>Un aumento en la esperanza de vida generalmente indica \
@@ -181,7 +184,7 @@
                 brechas económicas y sociales dentro de la región."
             },
             { 
-                name: "Net migration", 
+                name: "Migración neta", 
                 description: "La migración neta es el resultado de restar emigrantes (quienes dejan un país) de inmigrantes (quienes llegan a él). Un valor \
                 negativo indica más emigración que inmigración, mientras que un valor positivo refleja lo contrario. En Centroamérica, países como \
                 El Salvador, Guatemala, Honduras y Nicaragua presentan migración neta negativa, lo que sugiere altos niveles de emigración. En contraste, \
@@ -191,7 +194,7 @@
                 La migración neta es clave para evaluar las dinámicas migratorias, aunque debe complementarse con otros indicadores."
             },
             { 
-                name: "People using at least basic sanitation services", 
+                name: "Personas que utilizan al menos servicios básicos de saneamiento", 
                 description: "El acceso a servicios básicos de saneamiento varía significativamente en Centroamérica. Costa Rica destaca con más del \
                 95% de su población con acceso, manteniéndose consistentemente en este nivel desde 2010, reflejando una infraestructura y políticas \
                 sólidas. En contraste, Guatemala tiene menos del 70% de su población cubierta durante el mismo periodo, lo que evidencia desafíos en \
@@ -200,7 +203,7 @@
                 salud pública y desarrollo regional." 
             },
             { 
-                name: "Population density", 
+                name: "Densidad de población", 
                 description: "La densidad poblacional en Centroamérica muestra grandes diferencias. El Salvador lidera con 295 a 304 personas por km² \
                 entre 2010 y 2022, reflejando una alta concentración debido a su pequeño territorio (21,041 km²). En contraste, Belice, Nicaragua y Panamá \
                 tienen densidades mucho menores, indicando una población más dispersa. El promedio de densidad confirma a El Salvador como el más alto \
@@ -223,8 +226,13 @@
                 <div id="content-${index}" class="indicator-section">
                     <div class="indicator-content mt-4">
                         <div class="flex flex-wrap justify-center gap-8">
-                            <img src="graficos/${indicator.name.toLowerCase().replace(/ /g, "_")}_2.png" alt="Gráfico 1 de ${indicator.name}" class="rounded max-w-sm">
-                            <img src="graficos/${indicator.name.toLowerCase().replace(/ /g, "_")}_1.png" alt="Gráfico 2 de ${indicator.name}" class="rounded max-w-sm">
+                            <img src="graficos/${indicator.name.toLowerCase().replace(/ /g, "_")}_2.png" 
+                                alt="Gráfico 1 de ${indicator.name}" 
+                                class="indicator-img rounded max-w-sm transition-transform duration-300">
+                                
+                            <img src="graficos/${indicator.name.toLowerCase().replace(/ /g, "_")}_1.png" 
+                                alt="Gráfico 2 de ${indicator.name}" 
+                                class="indicator-img rounded max-w-sm transition-transform duration-300">
                         </div>
                         <p class="mt-4 text-gray-600">${indicator.description}</p>
                     </div>
@@ -232,6 +240,7 @@
             `;
             indicatorsContainer.appendChild(section);
         });
+
 
         function toggleSection(index) {
             const content = document.getElementById(`content-${index}`);
