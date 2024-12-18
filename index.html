@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Análisis de Esperanza de Vida en Centroamérica</title>
+    <link rel="icon" type="image/png" href="https://www.samsung.com/etc.clientlibs/samsung/clientlibs/consumer/global/clientlib-common/resources/images/Favicon.png" sizes="96x96"/>
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         .indicator-section {
@@ -50,14 +51,49 @@
             transform: translateY(-4px);
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
         }
-        .indicator-img:hover {
-            transform: scale(1.4); /* Aumenta el tamaño al hacer hover */
-        }   
+     
         @media (min-width: 1600px) {
             .container {
                 max-width: 1400px;
                 padding: 4rem 6rem;
             }
+        }
+       /* Animación suave */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        /* Hover suave para imágenes */
+        .indicator-img {
+            transition: transform 0.5s ease;
+        }
+
+        .indicator-img:hover {
+            transform: scale(1.3);
+        }
+
+        #conclusionsContent {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.8s ease, opacity 0.8s ease, padding 0.8s ease;
+            padding: 0 1.5rem;
+        }
+
+        #conclusionsContent.open {
+            max-height: 3000px; /* Valor alto para permitir expansión */
+            opacity: 1;
+            padding: 1.5rem;
+        }
+
+        #conclusionsSection {
+            padding-top: 2rem;  /* Mantiene el espacio en la parte superior */
+            padding-bottom: 1rem;  /* Elimina el exceso en la parte inferior */
         }
     </style>
 </head>
@@ -88,24 +124,31 @@
             <div id="indicators" class="indicator-section"></div>
         </section>
 
-        <section class="mt-8 p-8 bg-white rounded-lg text-center">
-            <h2 class="text-2xl font-bold text-blue-600">Conclusiones</h2>
-            <p class="mt-4 text-gray-700">
-                Las conclusiones basadas en el análisis de los datos resaltan los factores más determinantes en la esperanza de vida en la región de Centroamérica...<br><br>
-                1.	Esperanza de vida al nacer: La esperanza de vida en América Central ha aumentado entre 2010 y 2022 debido a mejoras en salud, condiciones de vida y acceso a servicios, aunque persisten desigualdades entre países. Factores clave incluyen mejor atención prenatal, reducción de enfermedades y acceso a tecnología médica.<br><br>
-                2.	Fuerza laboral total: La fuerza laboral ha crecido, impulsada por una población joven, urbanización y mejoras educativas. Sin embargo, desafíos como desempleo e informalidad laboral afectan la calidad del trabajo y, en consecuencia, la longevidad de los trabajadores.<br><br>
-                3.	Fuerza laboral con educación avanzada: Ha aumentado en algunos países gracias a mayor acceso a educación superior y políticas de formación profesional. Esto impulsa economías basadas en el conocimiento, mejora la calidad de vida y fomenta estilos de vida saludables, aunque persisten desigualdades de acceso educativo.<br><br>
-                4.	PIB per cápita y esperanza de vida: Países con mayor PIB per cápita, como Panamá y Costa Rica, tienen una esperanza de vida más alta, gracias a mejores servicios de salud, educación y calidad de vida. Sin embargo, en países con menor PIB per cápita, como El Salvador y Nicaragua, las diferencias en esperanza de vida no son tan significativas, indicando la influencia de otros factores.<br><br>
-                5.	Porcentaje de industrialización y esperanza de vida: La industrialización no siempre se traduce en una mayor esperanza de vida. Países como Costa Rica destacan por su alta longevidad pese a su enfoque en sectores no industriales, como el turismo y servicios, mientras que El Salvador y Guatemala muestran buenos indicadores de esperanza de vida con mayor industrialización.<br><br>
-                6.	Acceso a electricidad y esperanza de vida: Aunque el acceso a electricidad mejora las condiciones de vida, no es un factor determinante en la esperanza de vida, ya que países como Nicaragua tienen mayor longevidad que Honduras y Guatemala, a pesar de tener menor acceso eléctrico.<br><br>
-                7.	Ingreso nacional neto ajustado per cápita: Los países con mayor ingreso, como Panamá y Costa Rica, tienen una esperanza de vida más alta debido a mejores recursos para salud, educación y bienestar social. En contraste, Nicaragua y Honduras, con ingresos más bajos, muestran menor longevidad, reflejando la importancia del desarrollo económico en el acceso a servicios básicos y atención médica.<br><br>
-                8.	Migración neta: Países como El Salvador y Guatemala presentan migración neta negativa, indicando condiciones de vida desfavorables, aunque desde 2019 han mejorado ligeramente. En contraste, Costa Rica y Panamá tienen mayor inmigración, probablemente debido a su mejor calidad de vida. Esto se refleja en una mayor esperanza de vida en estos últimos países.<br><br>
-                9.	Acceso a servicios de saneamiento básico: Costa Rica lidera en acceso a saneamiento (95.9%-98.4%), lo que contribuye a su alta esperanza de vida y calidad de vida. Por el contrario, Guatemala, con menor acceso (65.4%-69.6%), tiene una esperanza de vida y calidad de vida más bajas, lo que podría estar relacionado con problemas de salud derivados de un saneamiento deficiente.<br><br>
-                10.	Densidad poblacional: El Salvador tiene la mayor densidad poblacional de la región (295-304 personas/km²), frente a otros países con menos de 100 personas/km², como Honduras o Nicaragua. Costa Rica presenta una densidad más equilibrada, asociada con mejores condiciones de vida.<br><br>
-                11.	Gasto sanitario per cápita: Costa Rica y Panamá destacan por un mayor gasto sanitario per cápita, reflejando sistemas de salud más desarrollados y mejor acceso a servicios médicos. En contraste, Honduras y Nicaragua tienen inversiones significativamente menores, evidenciando desigualdades en salud pública y desarrollo económico.<br><br>
-                12.	Ratio empleo/población: Guatemala y Honduras tienen ratios altos de empleo debido a la prevalencia de trabajos informales, agrícolas y comerciales. Sin embargo, un alto ratio no garantiza empleos de calidad. Nicaragua y El Salvador enfrentan retos como migración laboral y empleo informal, lo que afecta las oportunidades de trabajos dignos y las condiciones de vida.<br><br>
+        <section id="conclusionsSection" class="mb-8 p-8 bg-white rounded-lg text-center">
+            <button onclick="toggleConclusions()" class="w-full text-center text-2xl font-bold text-blue-600">
+                Conclusiones
+            </button>
+            <div id="conclusionsContent" class="indicator-section mt-4 text-gray-700 text-left">
+                <p>
+                    Las conclusiones basadas en el análisis de los datos resaltan los factores más determinantes en la esperanza de vida en la región de Centroamérica...<br><br>
+                    <strong>1. Esperanza de vida al nacer:</strong> La esperanza de vida en América Central ha aumentado entre 2010 y 2022 debido a mejoras en salud, condiciones de vida y acceso a servicios, aunque persisten desigualdades entre países. Factores clave incluyen mejor atención prenatal, reducción de enfermedades y acceso a tecnología médica.<br><br>
+                    <strong>2. Fuerza laboral total:</strong> La fuerza laboral ha crecido, impulsada por una población joven, urbanización y mejoras educativas. Sin embargo, desafíos como desempleo e informalidad laboral afectan la calidad del trabajo y, en consecuencia, la longevidad de los trabajadores.<br><br>
+                    <strong>3. Fuerza laboral con educación avanzada:</strong> Ha aumentado en algunos países gracias a mayor acceso a educación superior y políticas de formación profesional. Esto impulsa economías basadas en el conocimiento, mejora la calidad de vida y fomenta estilos de vida saludables, aunque persisten desigualdades de acceso educativo.<br><br>
+                    <strong>4. PIB per cápita y esperanza de vida:</strong> Países con mayor PIB per cápita, como Panamá y Costa Rica, tienen una esperanza de vida más alta, gracias a mejores servicios de salud, educación y calidad de vida. Sin embargo, en países con menor PIB per cápita, como El Salvador y Nicaragua, las diferencias en esperanza de vida no son tan significativas, indicando la influencia de otros factores.<br><br>
+                    <strong>5. Porcentaje de industrialización y esperanza de vida:</strong> La industrialización no siempre se traduce en una mayor esperanza de vida. Países como Costa Rica destacan por su alta longevidad pese a su enfoque en sectores no industriales, como el turismo y servicios, mientras que El Salvador y Guatemala muestran buenos indicadores de esperanza de vida con mayor industrialización.<br><br>
+                    <strong>6. Acceso a electricidad y esperanza de vida:</strong> Aunque el acceso a electricidad mejora las condiciones de vida, no es un factor determinante en la esperanza de vida, ya que países como Nicaragua tienen mayor longevidad que Honduras y Guatemala, a pesar de tener menor acceso eléctrico.<br><br>
+                    <strong>7. Ingreso nacional neto ajustado per cápita:</strong> Los países con mayor ingreso, como Panamá y Costa Rica, tienen una esperanza de vida más alta debido a mejores recursos para salud, educación y bienestar social. En contraste, Nicaragua y Honduras, con ingresos más bajos, muestran menor longevidad, reflejando la importancia del desarrollo económico en el acceso a servicios básicos y atención médica.<br><br>
+                    <strong>8. Migración neta:</strong> Países como El Salvador y Guatemala presentan migración neta negativa, indicando condiciones de vida desfavorables, aunque desde 2019 han mejorado ligeramente. En contraste, Costa Rica y Panamá tienen mayor inmigración, probablemente debido a su mejor calidad de vida. Esto se refleja en una mayor esperanza de vida en estos últimos países.<br><br>
+                    <strong>9. Acceso a servicios de saneamiento básico:</strong> Costa Rica lidera en acceso a saneamiento (95.9%-98.4%), lo que contribuye a su alta esperanza de vida y calidad de vida. Por el contrario, Guatemala, con menor acceso (65.4%-69.6%), tiene una esperanza de vida y calidad de vida más bajas, lo que podría estar relacionado con problemas de salud derivados de un saneamiento deficiente.<br><br>
+                    <strong>10. Densidad poblacional:</strong> El Salvador tiene la mayor densidad poblacional de la región (295-304 personas/km²), frente a otros países con menos de 100 personas/km², como Honduras o Nicaragua. Costa Rica presenta una densidad más equilibrada, asociada con mejores condiciones de vida.<br><br>
+                    <strong>11. Gasto sanitario per cápita:</strong> Costa Rica y Panamá destacan por un mayor gasto sanitario per cápita, reflejando sistemas de salud más desarrollados y mejor acceso a servicios médicos. En contraste, Honduras y Nicaragua tienen inversiones significativamente menores, evidenciando desigualdades en salud pública y desarrollo económico.<br><br>
+                    <strong>12. Ratio empleo/población:</strong> Guatemala y Honduras tienen ratios altos de empleo debido a la prevalencia de trabajos informales, agrícolas y comerciales. Sin embargo, un alto ratio no garantiza empleos de calidad. Nicaragua y El Salvador enfrentan retos como migración laboral y empleo informal, lo que afecta las oportunidades de trabajos dignos y las condiciones de vida.<br><br>
+                </p>
+            </div>
+        </section>        
 
-            </p>
+        <section class="mb-8 p-8 bg-white rounded-lg text-center">
+            <h2 class="text-2xl font-bold text-blue-600">Samsung Innovation Campus 2024</h2>
         </section>
     </main>
 
@@ -214,6 +257,26 @@
         ];
 
         const indicatorsContainer = document.getElementById("indicators");
+                    // Crear modal dinámico
+        const createModal = (src, alt) => {
+            const modal = document.createElement("div");
+            modal.id = "imageModal";
+            modal.classList.add("fixed", "inset-0", "bg-black", "bg-opacity-75", "flex", "items-center", "justify-center", "z-50");
+            
+            modal.innerHTML = `
+                <div class="relative">
+                    <img src="${src}" alt="${alt}" class="max-w-full max-h-screen rounded-lg animate-fadeIn">
+                    <button id="closeModal" class="absolute top-2 right-2 flex items-center justify-center w-12 h-12 text-black bg-white rounded-full shadow-lg text-2xl font-bold hover:bg-red-600 hover:text-white transition-colors duration-300">&times;</button>
+                </div>
+            `;
+
+            document.body.appendChild(modal);
+
+            // Cerrar el modal
+            document.getElementById("closeModal").onclick = () => {
+                modal.remove();
+            };
+        };
 
         indicators.forEach((indicator, index) => {
             const section = document.createElement("section");
@@ -228,11 +291,13 @@
                         <div class="flex flex-wrap justify-center gap-8">
                             <img src="graficos/${indicator.name.toLowerCase().replace(/ /g, "_")}_2.png" 
                                 alt="Gráfico 1 de ${indicator.name}" 
-                                class="indicator-img rounded max-w-sm transition-transform duration-300">
-                                
+                                class="indicator-img rounded max-w-sm cursor-pointer hover:scale-110 transition-transform duration-500" 
+                                onclick="createModal(this.src, this.alt)">
+
                             <img src="graficos/${indicator.name.toLowerCase().replace(/ /g, "_")}_1.png" 
                                 alt="Gráfico 2 de ${indicator.name}" 
-                                class="indicator-img rounded max-w-sm transition-transform duration-300">
+                                class="indicator-img rounded max-w-sm cursor-pointer hover:scale-110 transition-transform duration-500" 
+                                onclick="createModal(this.src, this.alt)">
                         </div>
                         <p class="mt-4 text-gray-600">${indicator.description}</p>
                     </div>
@@ -251,6 +316,13 @@
             const content = document.getElementById("indicators");
             content.classList.toggle("open");
         }
+
+        function toggleConclusions() {
+            const content = document.getElementById("conclusionsContent");
+            content.classList.toggle("open");
+        }
+
+
     </script>
 </body>
 </html>
