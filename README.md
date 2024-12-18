@@ -32,7 +32,7 @@
     
     El funcionamiento del proyecto se puede visualizar a través del siguiente diagrama de flujo:
 
-    ![Flujograma](img/Flujograma.png) **pendiente**
+    ![Flujograma](img/Flujograma.png) **- pendiente**
 
 ### Proceso
 * **Fuente del dataset:** [World Development Indicators | DataBank (World Bank Group)](https://databank.worldbank.org/reports.aspx?source=world-development-indicators#)
