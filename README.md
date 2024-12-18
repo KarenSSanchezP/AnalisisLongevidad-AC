@@ -27,12 +27,11 @@
 ### Arquitectura
 * Arquitectura del proyecto + imagen
     
-    La arquitectura del proyecto se puede visualizar a través del siguiente diagrama de despliegue:
-    ![DiagramaDespliegue](img/DiagramaDespliegue.png)
+    - La arquitectura del proyecto se puede visualizar a través del siguiente diagrama de despliegue:
+        ![DiagramaDespliegue](img/DiagramaDespliegue.png)
     
-    El funcionamiento del proyecto se puede visualizar a través del siguiente diagrama de flujo:
-
-    ![Flujograma](img/Flujograma.png) **- pendiente**
+    - El funcionamiento del proyecto se puede visualizar a través del siguiente diagrama de flujo:
+        ![Flujograma](img/Flujograma.png)
 
 ### Proceso
 * **Fuente del dataset:** [World Development Indicators | DataBank (World Bank Group)](https://databank.worldbank.org/reports.aspx?source=world-development-indicators#)
