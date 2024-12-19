@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análisis de Esperanza de Vida en Centroamérica</title>
+    <link rel="icon" type="image/png" href="https://www.samsung.com/etc.clientlibs/samsung/clientlibs/consumer/global/clientlib-common/resources/images/Favicon.png" sizes="96x96"/>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .indicator-section {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.8s ease, opacity 0.8s ease, padding 0.8s ease;
+            padding: 0;
+        }
+        .indicator-section.open {
+            max-height: 3000px;
+            opacity: 1;
+            padding: 1.5rem;
+        }
+        .indicator-content {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 4rem;
+        }
+        .card {
+            background: white;
+            padding: 2rem;
+            border: 2px solid #e5e7eb;
+            border-radius: 16px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.3);
+        }
+        .btn {
+            background: linear-gradient(135deg, #4f46e5, #3b82f6);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 17px;
+        }
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+        }
+     
+        @media (min-width: 1600px) {
+            .container {
+                max-width: 1400px;
+                padding: 4rem 6rem;
+            }
+        }
+       /* Animación suave */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: scale(0.9); }
+            to { opacity: 1; transform: scale(1); }
+        }
+
+        .animate-fadeIn {
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        /* Hover suave para imágenes */
+        .indicator-img {
+            transition: transform 0.5s ease;
+        }
+
+        .indicator-img:hover {
+            transform: scale(1.3);
+        }
+
+        #conclusionsContent {
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.8s ease, opacity 0.8s ease, padding 0.8s ease;
+            padding: 0 1.5rem;
+        }
+
+        #conclusionsContent.open {
+            max-height: 3000px; /* Valor alto para permitir expansión */
+            opacity: 1;
+            padding: 1.5rem;
+        }
+
+        #conclusionsSection {
+            padding-top: 2rem;  /* Mantiene el espacio en la parte superior */
+            padding-bottom: 1rem;  /* Elimina el exceso en la parte inferior */
+        }
+    </style>
+</head>
+<body class="bg-blue-50 font-sans leading-relaxed">
+    <header class="text-center p-8 bg-gradient-to-r from-blue-600 to-blue-800 text-white rounded-b-lg">
+        <h1 class="text-4xl font-bold">Análisis comparativo de factores socioculturales y económicos que han afectado la esperanza de vida de las personas en la región de América Central (AC) entre los años del 2010 al 2022
+        </h1>
+    </header>
+
+    <main class="container">
+        <section class="mb-8 p-8 bg-white rounded-lg text-center">
+            <h2 class="text-2xl font-bold text-blue-600">Generalidades del Proyecto</h2>
+            <p class="mt-4 text-gray-700">Este proyecto analiza múltiples indicadores socioeconómicos relacionados con la esperanza de vida en países de Centroamérica, considerando factores como salud pública, educación, empleo, y más.</p>
+        
+            <h3 class="mt-6 text-xl font-semibold text-blue-500">Objetivo</h3>
+            <p class="mt-2 text-gray-700">Identificar patrones y tendencias que afectan la esperanza de vida en Centroamérica, proporcionando información relevante para la toma de decisiones y la creación de políticas públicas.</p>
+        
+            <h3 class="mt-6 text-xl font-semibold text-blue-500">Origen de Datos</h3>
+            <p class="mt-2 text-gray-700">
+                Los datos utilizados en este estudio fueron obtenidos de la <a href="https://databank.worldbank.org/reports.aspx?source=world-development-indicators#" target="_blank" class="text-blue-600 underline">Base de Datos del Banco Mundial</a>.
+            </p>
+        </section>        
+
+        <section class="mb-8 bg-white p-8 rounded-lg text-center">
+            <button class="btn font-bold" onclick="toggleAll()">
+                Indicadores Analizados
+            </button>
+            <div id="indicators" class="indicator-section"></div>
+        </section>
+
+        <section id="conclusionsSection" class="mb-8 p-8 bg-white rounded-lg text-center">
+            <button onclick="toggleConclusions()" class="w-full text-center text-2xl font-bold text-blue-600">
+                Conclusiones
+            </button>
+            <div id="conclusionsContent" class="indicator-section mt-4 text-gray-700 text-left">
+                <p>
+                    Las conclusiones basadas en el análisis de los datos resaltan los factores más determinantes en la esperanza de vida en la región de Centroamérica...<br><br>
+                    <strong>1. Esperanza de vida al nacer:</strong> La esperanza de vida en América Central ha aumentado entre 2010 y 2022 debido a mejoras en salud, condiciones de vida y acceso a servicios, aunque persisten desigualdades entre países. Factores clave incluyen mejor atención prenatal, reducción de enfermedades y acceso a tecnología médica.<br><br>
+                    <strong>2. Fuerza laboral total:</strong> La fuerza laboral ha crecido, impulsada por una población joven, urbanización y mejoras educativas. Sin embargo, desafíos como desempleo e informalidad laboral afectan la calidad del trabajo y, en consecuencia, la longevidad de los trabajadores.<br><br>
+                    <strong>3. Fuerza laboral con educación avanzada:</strong> Ha aumentado en algunos países gracias a mayor acceso a educación superior y políticas de formación profesional. Esto impulsa economías basadas en el conocimiento, mejora la calidad de vida y fomenta estilos de vida saludables, aunque persisten desigualdades de acceso educativo.<br><br>
+                    <strong>4. PIB per cápita y esperanza de vida:</strong> Países con mayor PIB per cápita, como Panamá y Costa Rica, tienen una esperanza de vida más alta, gracias a mejores servicios de salud, educación y calidad de vida. Sin embargo, en países con menor PIB per cápita, como El Salvador y Nicaragua, las diferencias en esperanza de vida no son tan significativas, indicando la influencia de otros factores.<br><br>
+                    <strong>5. Porcentaje de industrialización y esperanza de vida:</strong> La industrialización no siempre se traduce en una mayor esperanza de vida. Países como Costa Rica destacan por su alta longevidad pese a su enfoque en sectores no industriales, como el turismo y servicios, mientras que El Salvador y Guatemala muestran buenos indicadores de esperanza de vida con mayor industrialización.<br><br>
+                    <strong>6. Acceso a electricidad y esperanza de vida:</strong> Aunque el acceso a electricidad mejora las condiciones de vida, no es un factor determinante en la esperanza de vida, ya que países como Nicaragua tienen mayor longevidad que Honduras y Guatemala, a pesar de tener menor acceso eléctrico.<br><br>
+                    <strong>7. Ingreso nacional neto ajustado per cápita:</strong> Los países con mayor ingreso, como Panamá y Costa Rica, tienen una esperanza de vida más alta debido a mejores recursos para salud, educación y bienestar social. En contraste, Nicaragua y Honduras, con ingresos más bajos, muestran menor longevidad, reflejando la importancia del desarrollo económico en el acceso a servicios básicos y atención médica.<br><br>
+                    <strong>8. Migración neta:</strong> Países como El Salvador y Guatemala presentan migración neta negativa, indicando condiciones de vida desfavorables, aunque desde 2019 han mejorado ligeramente. En contraste, Costa Rica y Panamá tienen mayor inmigración, probablemente debido a su mejor calidad de vida. Esto se refleja en una mayor esperanza de vida en estos últimos países.<br><br>
+                    <strong>9. Acceso a servicios de saneamiento básico:</strong> Costa Rica lidera en acceso a saneamiento (95.9%-98.4%), lo que contribuye a su alta esperanza de vida y calidad de vida. Por el contrario, Guatemala, con menor acceso (65.4%-69.6%), tiene una esperanza de vida y calidad de vida más bajas, lo que podría estar relacionado con problemas de salud derivados de un saneamiento deficiente.<br><br>
+                    <strong>10. Densidad poblacional:</strong> El Salvador tiene la mayor densidad poblacional de la región (295-304 personas/km²), frente a otros países con menos de 100 personas/km², como Honduras o Nicaragua. Costa Rica presenta una densidad más equilibrada, asociada con mejores condiciones de vida.<br><br>
+                    <strong>11. Gasto sanitario per cápita:</strong> Costa Rica y Panamá destacan por un mayor gasto sanitario per cápita, reflejando sistemas de salud más desarrollados y mejor acceso a servicios médicos. En contraste, Honduras y Nicaragua tienen inversiones significativamente menores, evidenciando desigualdades en salud pública y desarrollo económico.<br><br>
+                    <strong>12. Ratio empleo/población:</strong> Guatemala y Honduras tienen ratios altos de empleo debido a la prevalencia de trabajos informales, agrícolas y comerciales. Sin embargo, un alto ratio no garantiza empleos de calidad. Nicaragua y El Salvador enfrentan retos como migración laboral y empleo informal, lo que afecta las oportunidades de trabajos dignos y las condiciones de vida.<br><br>
+                </p>
+            </div>
+        </section>        
+
+        <section class="mb-8 p-8 bg-white rounded-lg text-center">
+            <h2 class="text-2xl font-bold text-blue-600">Samsung Innovation Campus 2024<br>Pythoners</h2>
+        </section>
+    </main>
+
+    <script>
+        const indicators = [
+            { 
+                name: "Acceso a la electricidad", 
+                description: "Entre 2010 y 2022, Centroamérica mostró avances en acceso a electricidad, destacando Costa Rica y El Salvador, \
+                que alcanzaron el 100% de cobertura en 2022. Honduras tuvo una caída notable en 2017, mientras que Nicaragua, aunque mejora, \
+                sigue con menos del 90% de acceso. Persisten disparidades regionales, reflejando desafíos en infraestructura y políticas energéticas." 
+            },
+            { 
+                name: "Ingreso nacional neto ajustado per cápita", 
+                description: "Entre 2010 y 2022, Panamá y Costa Rica lideraron en ingresos nacionales netos ajustados per cápita, mientras que \
+                Nicaragua y Honduras quedaron rezagados, evidenciando disparidades económicas en Centroamérica. Aunque la mayoría de países mostraron \
+                crecimiento sostenido, en 2020 hubo una caída significativa, especialmente en Panamá, debido a los efectos de la pandemia de COVID-19. \
+                La brecha entre los países con mayores y menores ingresos sigue siendo considerable." 
+            },
+            { 
+                name: "Gasto actual en salud per cápita", 
+                description: "El gasto sanitario corriente per cápita en Centroamérica muestra claras disparidades entre países. Nicaragua registra los \
+                niveles más bajos, mientras que Costa Rica y Panamá lideran, compitiendo por los primeros puestos hasta 2013, cuando Panamá experimenta un \
+                crecimiento notable. <br>En gráficos de líneas, se observan las tendencias anuales y la amplia brecha entre países, destacando las diferencias \
+                en cómo cada nación afronta el gasto sanitario. En gráficos de barras, se aprecia la distribución de los desembolsos, reafirmando la posición \
+                destacada de Panamá y Costa Rica frente al declive de Nicaragua. Estas visualizaciones evidencian los retos de la región en inversión sanitaria."
+            },
+            { 
+                name: "Relación empleo población", 
+                description: "El ratio de empleo con población de 15 años o más en Centroamérica muestra disparidades, con Nicaragua liderando en \
+                algunos años, aunque su falta de datos genera incertidumbre sobre su tendencia completa. Este indicador sugiere que en Nicaragua, \
+                más personas comienzan a trabajar desde edades tempranas, lo que podría impactar su salud y bienestar. Panamá y Guatemala también \
+                destacan, con tasas relativamente altas, aunque Panamá muestra una disminución desde 2019. <br>En gráficos de líneas, se \
+                observan tendencias y brechas en las tasas de empleo, mientras que en barras se aprecia un promedio general del cual no se ve mucha variacion \
+                Esto refleja una alta probabilidad de empleo para personas de 15 años o más en Centroamérica."
+            },
+            { 
+                name: "PIB per cápita", 
+                description: "El gráfico de líneas del PIB per cápita en Centroamérica (2010-2022) refleja un crecimiento económico general, con Panamá y \
+                Costa Rica liderando la región y destacando por sus altos valores. En contraste, Nicaragua y Honduras registran los niveles más bajos, \
+                evidenciando notables disparidades económicas. Aunque todos los países muestran una tendencia al alza, la mayoría experimentó una caída en \
+                2020, atribuida a los impactos de la pandemia de COVID-19, siendo Panamá el más afectado. Estas diferencias subrayan la brecha económica \
+                entre los países más desarrollados, como Panamá y Costa Rica, y aquellos con menor ingreso per cápita."
+            },
+            { 
+                name: "Industria (incluida la construcción)", 
+                description: "El gráfico muestra el porcentaje del PIB aportado por la industria y la construcción en Centroamérica entre 2010 y 2022. \
+                Panamá destaca con un aumento en su industrialización hasta 2013, seguido de estabilidad. Honduras, El Salvador y Guatemala mantienen \
+                niveles altos, superando el 25% durante la mayoría del período. Costa Rica, en cambio, presenta una tendencia a la baja, posiblemente \
+                reflejando una transición económica hacia otros sectores." 
+            },
+            { 
+                name: "Total de la fuerza laboral", 
+                description: "El indicador Labor force total, mide la población económicamente activa, empleada o en búsqueda de empleo, y permite \
+                analizar tendencias económicas y laborales en Centroamérica. Un crecimiento en la fuerza laboral puede reflejar un aumento en la \
+                población en edad de trabajar, mayor participación en el mercado o mejoras en políticas laborales. En contraste, una disminución \
+                podría indicar problemas como recesión, emigración, envejecimiento de la población o crisis laboral. Estas dinámicas afectan no solo \
+                la economía, sino también la calidad de vida y la longevidad. Las variaciones en la fuerza laboral evidencian desigualdades en \
+                oportunidades y condiciones laborales entre países de la región."
+            },
+            { 
+                name: "Fuerza laboral con educación avanzada", 
+                description: "El indicador Población laboral con educación avanzada, mide el porcentaje de la fuerza laboral con estudios superiores, \
+                como títulos universitarios o postgrados, reflejando el nivel educativo y las oportunidades laborales en un país. El gráfico permite \
+                analizar tendencias temporales en la proporción de trabajadores calificados y las desigualdades entre países de Centroamérica. \
+                Un aumento en este indicador sugiere mejoras en el acceso a la educación superior y está asociado con mayores oportunidades laborales, \
+                mejores ingresos y una calidad de vida superior. Las diferencias entre países destacan rezagos en algunos y avances significativos en \
+                otros, lo que impacta directamente en las condiciones socioeconómicas y la longevidad de las personas."
+            },
+            { 
+                name: "Esperanza de vida al nacer total", 
+                description: "El indicador Esperanza de vida al nacer mide el promedio de años que se espera que viva una persona al nacer, reflejando \
+                el bienestar y las condiciones de salud de una población. El gráfico permite analizar tendencias entre 2010 y 2022, destacando aumentos, \
+                disminuciones o estabilidad en la longevidad de los países de Centroamérica. <br>Un aumento en la esperanza de vida generalmente indica \
+                mejoras en salud pública, atención médica y condiciones de vida. Sin embargo, las desigualdades entre países muestran cómo factores como \
+                pobreza, acceso limitado a servicios básicos y sistemas de salud deficientes afectan este indicador. Las disparidades reflejan también las \
+                brechas económicas y sociales dentro de la región."
+            },
+            { 
+                name: "Migración neta", 
+                description: "La migración neta es el resultado de restar emigrantes (quienes dejan un país) de inmigrantes (quienes llegan a él). Un valor \
+                negativo indica más emigración que inmigración, mientras que un valor positivo refleja lo contrario. En Centroamérica, países como \
+                El Salvador, Guatemala, Honduras y Nicaragua presentan migración neta negativa, lo que sugiere altos niveles de emigración. En contraste, \
+                Panamá, Costa Rica y Belice tienen migración neta positiva, evidenciando más inmigración que emigración. <br>Factores como recursos, \
+                oportunidades económicas y políticas migratorias influyen en estas tendencias. Los datos también destacan implicaciones sociales y \
+                económicas, como la presión sobre los servicios públicos en países receptores y la pérdida de población activa en los países emisores. \
+                La migración neta es clave para evaluar las dinámicas migratorias, aunque debe complementarse con otros indicadores."
+            },
+            { 
+                name: "Personas que utilizan al menos servicios básicos de saneamiento", 
+                description: "El acceso a servicios básicos de saneamiento varía significativamente en Centroamérica. Costa Rica destaca con más del \
+                95% de su población con acceso, manteniéndose consistentemente en este nivel desde 2010, reflejando una infraestructura y políticas \
+                sólidas. En contraste, Guatemala tiene menos del 70% de su población cubierta durante el mismo periodo, lo que evidencia desafíos en \
+                recursos e infraestructura. Un gráfico de barras muestra que Costa Rica lidera la región, mientras que Nicaragua, Guatemala y Honduras \
+                presentan menores porcentajes de acceso, indicando la necesidad de mejoras significativas. Estas disparidades tienen implicaciones en \
+                salud pública y desarrollo regional." 
+            },
+            { 
+                name: "Densidad de población", 
+                description: "La densidad poblacional en Centroamérica muestra grandes diferencias. El Salvador lidera con 295 a 304 personas por km² \
+                entre 2010 y 2022, reflejando una alta concentración debido a su pequeño territorio (21,041 km²). En contraste, Belice, Nicaragua y Panamá \
+                tienen densidades mucho menores, indicando una población más dispersa. El promedio de densidad confirma a El Salvador como el más alto \
+                (300 personas por km²), seguido por Guatemala (146) y Honduras (83). Estas variaciones afectan el acceso a servicios y las condiciones \
+                de vida, aunque mayor densidad no siempre implica menor pobreza. Comprender esta distribución es esencial para analizar desigualdades y \
+                vulnerabilidades en la región." 
+            }
+        ];
+
+        const indicatorsContainer = document.getElementById("indicators");
+                    // Crear modal dinámico
+        const createModal = (src, alt) => {
+            const modal = document.createElement("div");
+            modal.id = "imageModal";
+            modal.classList.add("fixed", "inset-0", "bg-black", "bg-opacity-75", "flex", "items-center", "justify-center", "z-50");
+            
+            modal.innerHTML = `
+                <div class="relative">
+                    <img src="${src}" alt="${alt}" class="max-w-full max-h-screen rounded-lg animate-fadeIn">
+                    <button id="closeModal" class="absolute top-2 right-2 flex items-center justify-center w-12 h-12 text-black bg-white rounded-full shadow-lg text-2xl font-bold hover:bg-red-600 hover:text-white transition-colors duration-300">&times;</button>
+                </div>
+            `;
+
+            document.body.appendChild(modal);
+
+            // Cerrar el modal
+            document.getElementById("closeModal").onclick = () => {
+                modal.remove();
+            };
+        };
+
+        indicators.forEach((indicator, index) => {
+            const section = document.createElement("section");
+            section.classList.add("card", "mb-8");
+
+            section.innerHTML = `
+                <button class="w-full text-left text-xl font-bold text-blue-600" onclick="toggleSection(${index})">
+                    ${indicator.name}
+                </button>
+                <div id="content-${index}" class="indicator-section">
+                    <div class="indicator-content mt-4">
+                        <div class="flex flex-wrap justify-center gap-8">
+                            <img src="graficos/${indicator.name.toLowerCase().replace(/ /g, "_")}_2.png" 
+                                alt="Gráfico 1 de ${indicator.name}" 
+                                class="indicator-img rounded max-w-sm cursor-pointer hover:scale-110 transition-transform duration-500" 
+                                onclick="createModal(this.src, this.alt)">
+
+                            <img src="graficos/${indicator.name.toLowerCase().replace(/ /g, "_")}_1.png" 
+                                alt="Gráfico 2 de ${indicator.name}" 
+                                class="indicator-img rounded max-w-sm cursor-pointer hover:scale-110 transition-transform duration-500" 
+                                onclick="createModal(this.src, this.alt)">
+                        </div>
+                        <p class="mt-4 text-gray-600">${indicator.description}</p>
+                    </div>
+                </div>
+            `;
+            indicatorsContainer.appendChild(section);
+        });
+
+
+        function toggleSection(index) {
+            const content = document.getElementById(`content-${index}`);
+            content.classList.toggle("open");
+        }
+
+        function toggleAll() {
+            const content = document.getElementById("indicators");
+            content.classList.toggle("open");
+        }
+
+        function toggleConclusions() {
+            const content = document.getElementById("conclusionsContent");
+            content.classList.toggle("open");
+        }
+
+
+    </script>
+</body>
+</html>
