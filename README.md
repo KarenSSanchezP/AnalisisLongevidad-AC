@@ -21,8 +21,7 @@
 
 ### Descripción
 * Proyecto en Python sobre análisis comparativo de factores socioculturales y económicos que han afectado la esperanza de vida de las personas en la región de América Central (AC) entre los años del 2010 al 2022
-
--> Alguna imagen o gif que muestre el proyecto **- pendiente**
+![ProyectoGIF](img/ProyectoGIF.gif)
 
 ### Arquitectura
 - La arquitectura del proyecto se puede visualizar a través del siguiente diagrama de despliegue:
@@ -61,10 +60,10 @@
  
 ### Funcionalidades
 - **Integración del proyecto en una página web**
-    - Enlace a la página web: [Analisis de Esperanza de Vida en América Central]()
+    - Enlace a la página web: [Analisis de Esperanza de Vida en América Central](https://analisis-esperanza-de-vida.netlify.app/)
     - Tecnología/Herramientas usadas: HTML, CSS, Tailwind, GitHub Pages.
     - Arquitectura (img): La arquitectura del proyecto junto con la integración en una página web se puede visualizar a través del siguiente diagrama de despliegue.
     ![DiagramaDespliegueWeb](img/DiagramaDespliegueWeb.png)
 
 ### EstadoDelProyecto
-* **En desarrollo**
+* FINALIZADO
